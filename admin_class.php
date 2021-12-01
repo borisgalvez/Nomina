@@ -62,14 +62,19 @@ Class Action {
 		$data .= ", username = '$username' ";
 		$data .= ", password = '$password' ";
 		$data .= ", type = '$type' ";
+        $data .= ", email = '$email'";
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO users set ".$data);
+            echo '\n';
+            echo $data;
 		}else{
 			$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
 		}
 		if($save){
 			return 1;
-		}
+		} else {
+            echo $save;
+        }
 	}
 	function signup(){
 		extract($_POST);
