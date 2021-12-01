@@ -86,7 +86,7 @@ div#login-right::before {
   		<div id="login-right">
   			<div class="card col-md-8">
   				<div class="card-body">
-  						
+  						<b id="msg"></b>
   					<form id="login-form" >
   						<div class="form-group">
   							<label for="username" class="control-label">Usuario</label>
@@ -96,7 +96,10 @@ div#login-right::before {
   							<label for="password" class="control-label">Contraseña</label>
   							<input type="password" id="password" name="password" class="form-control">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Entrar</button></center>
+                        <div class="d-flex">
+                            <button class="btn-sm btn-block btn-wave col-md-4 btn-primary mr-2">Entrar</button>
+                            <a href="reset_password.php">Olvide mi contraseña</a>
+                        </div>
   					</form>
   				</div>
   			</div>
@@ -110,6 +113,10 @@ div#login-right::before {
 
 </body>
 <script>
+    const msg = new URLSearchParams(window.location.search).get('msg')
+    if (msg) {
+        document.querySelector('#msg').innerHTML = msg
+    }
 	$('#login-form').submit(function(e){
 		e.preventDefault()
 		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
