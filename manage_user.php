@@ -15,6 +15,10 @@ foreach($user->fetch_array() as $k =>$v){
 			<label for="name">Nombre</label>
 			<input type="text" name="name" id="name" class="form-control" value="<?php echo isset($meta['name']) ? $meta['name']: '' ?>" required>
 		</div>
+        <div>
+            <label for="email">Correo Electrónico</label>
+            <input type="text" class="form-control" value="<?php echo $meta['email'] ?? '' ?>" id="email" name="email" />
+        </div>
 		<div class="form-group">
 			<label for="username">Usuario</label>
 			<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required>
